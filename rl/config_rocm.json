@@ -1,0 +1,22 @@
+{
+    "bf16": {
+        "enabled": true
+    },
+    "zero_optimization": {
+        "stage": 1,
+        "allgather_partitions": true,
+        "allgather_bucket_size": 1e12,
+        "overlap_comm": false,
+        "reduce_scatter": false,
+        "reduce_bucket_size": 1e12,
+        "contiguous_gradients": false,
+        "round_robin_gradients": false,
+        "ignore_unused_parameters": true
+    },
+    "gradient_accumulation_steps": "auto",
+    "gradient_clipping": "auto",
+    "steps_per_print": 2000,
+    "train_batch_size": "auto",
+    "train_micro_batch_size_per_gpu": "auto",
+    "wall_clock_breakdown": false
+}

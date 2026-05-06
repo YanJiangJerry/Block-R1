@@ -1,0 +1,24 @@
+# ROCm-specific accelerate config for AMD MI300X GPUs
+# Uses ZeRO-1 + config_rocm.json to avoid gradient shape mismatch (455540736 vs 469303296)
+# ZeRO-1 only partitions optimizer states, not gradients - all ranks allreduce same-shaped tensors
+# When using deepspeed_config_file, gradient_clipping/mixed_precision etc. must be in ds_config only
+main_process_port: 13378
+
+compute_environment: LOCAL_MACHINE
+debug: false
+deepspeed_config:
+  deepspeed_config_file: rl/config_rocm.json
+  deepspeed_multinode_launcher: standard
+  zero3_init_flag: false
+distributed_type: DEEPSPEED
+downcast_bf16: 'auto'
+machine_rank: 0
+main_training_function: main
+num_machines: 1
+num_processes: 4
+rdzv_backend: static
+same_network: true
+tpu_env: []
+tpu_use_cluster: false
+tpu_use_sudo: false
+use_cpu: false

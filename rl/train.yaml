@@ -1,0 +1,122 @@
+# ModelConfig
+use_peft: true
+torch_dtype: bfloat16
+load_in_4bit: true
+model_path: LLaDA-sft-s1k-merged
+# For all models in the LLaDA family, we set attn_implementation to flash_attention_2 for better training speed on both NVIDIA and AMD GPUs.
+attn_implementation: flash_attention_2
+# For SDAR and TraDo that adopt flash attention, we set attn_implementation to sdpa for better compatibility with LoRA and gradient checkpointing on ROCm.
+# attn_implementation: sdpa
+
+lora_r: 128
+lora_alpha: 64
+lora_dropout: 0.05
+peft_task_type: CAUSAL_LM
+
+# GRPOConfig
+dataset: gsm8k
+seed: 42
+bf16: true
+
+sync_ref_model: True
+ref_model_sync_steps: 64
+
+adam_beta1: 0.9
+adam_beta2: 0.99
+weight_decay: 0.1
+max_grad_norm: 0.2
+
+use_vllm: false
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.9
+
+warmup_ratio: 0.0001
+logging_steps: 1
+learning_rate: 3e-6
+# learning_rate: 1e-5
+lr_scheduler_type: constant_with_warmup
+
+# For each training prompt, we generate num_generations completions
+# One batch rollouts (gradient_accumulation_steps * per_device_train_batch_size * num_generations) 
+# Global batch size (sequences) = gradient_accumulation_steps * per_device_train_batch_size * num_generations * num_devices
+
+# Group size
+# num_generations: 12
+# The following setting follows d1 and wd1
+num_generations: 6
+# For llada2 on H100 GPU
+# num_generations: 4
+
+# Model backward (optimizer.step) for every gradient_accumulation_steps accumulated gradients
+# The global train batch size (2 x 1) must be evenly divisible by the number of generations per prompt (6).
+# Follow d1 and wd1 and GDPO:
+# per_device_eval_batch_size: 6
+# per_device_train_batch_size: 6
+# gradient_accumulation_steps: 2
+
+# Max batch size 18 on ROCm with 192GB
+# The above setting is equivalent to:
+per_device_eval_batch_size: 12
+per_device_train_batch_size: 12
+gradient_accumulation_steps: 1
+
+# DDP: drop last incomplete batch to ensure identical batch size across ranks,
+# avoiding gradient shape mismatch (RuntimeError: Detected mismatch between collectives)
+# R1 / Guru: if len(train) is tiny vs (per_device_train_batch_size * num_processes), set false for debugging.
+dataloader_drop_last: true
+
+# For llada2 on H100 GPU
+# per_device_eval_batch_size: 2
+# per_device_train_batch_size: 2
+# gradient_accumulation_steps: 6
+
+# Set this to true to enable re-computation of activations
+gradient_checkpointing: false
+# Ensure the following sub-parameters are indented correctly
+gradient_checkpointing_kwargs:
+  # Must be false for compatibility with Flash Attention 2 and LoRA
+  use_reentrant: false
+
+# Number of epochs to train on the SAME collected data batch.
+# Follow d1 and wd1, we set num_iterations=12
+# For every batch of data collected, the model will perform 12 separate updates 
+# Which are 12 optimizer steps by reusing the same batch of data.
+num_iterations: 12
+
+# The default wd1 methods are d1 and wd1
+run_name: wd1
+output_dir: /checkpoints
+resume_from_checkpoint: false
+
+eval_strategy: steps
+save_strategy: steps
+eval_steps: 100
+save_steps: 500
+max_steps: 5000
+save_total_limit: 20
+num_train_epochs: 10
+
+# To decode a sequence of N tokens, we use N/2 denoising steps and unmask 2 tokens in each step. While the decoding process can generate tokens in any order, we find that decoding from left to right in blocks yields slightly better performance in practice. This is referred to as the semi-autoregressive decoding strategy (Nie et al., 2025). 
+# More specifically, we divide the sequence into blocks of 32 tokens. In each step, we unmask 2 tokens with the highest confidence within the current block, regardless of their position. Once all the tokens in the current block are unmasked, we move to the next one.
+max_completion_length: 256
+diffusion_steps: 128
+# max_completion_length: 512
+# diffusion_steps: 256
+# LLaDA2.1-mini can handle longer context length, but the short length is more aligned with the evaluation settings of many existing reasoning benchmarks (e.g., GSM8K) by existing wd1 framework (e.g., wd1). We will explore larger max_completion_length in the future.
+# max_completion_length: 2048
+# diffusion_steps: 1024
+block_length: 32
+max_prompt_length: 200
+generation_batch_size: 6
+remasking: low_confidence
+random_masking: True
+p_mask_prompt: 0.15
+beta: 0.04
+epsilon: 0.5
+
+# R1 multi-domain (run_multi_train.py): optional DSCB adaptive prototypes
+# r1_adaptive_proto: false
+# r1_max_prototypes: 64
+# r1_proto_gamma: 2.5
+# r1_proto_beta_sim: 0.1
+# r1_proto_min_samples_stat: 3
