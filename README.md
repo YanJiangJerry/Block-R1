@@ -2,7 +2,7 @@
 
 <img src="Logo.png" alt="Block-R1" width="900"/>
 
-<!-- [![Paper-b1](https://img.shields.io/badge/Paper-b1-red)](http://arxiv.org/abs/2605.02263) -->
+
 <!-- [![Paper-Block--R1](https://img.shields.io/badge/Paper-Block--R1-red)](#) -->
 [![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow)](https://huggingface.co/datasets/dLLM-R1/Block-R1)
 [![Code](https://img.shields.io/badge/Code-GitHub-blue)](https://anonymous.4open.science/r/Block-R1-2026/README.md)
@@ -13,7 +13,7 @@
 
 ## Overview
 
-**Block-R1** is a benchmark for **multi-domain reinforcement learning with block-based diffusion large language models**, designed to enhance block-based reasoning generation in dLLMs. This codebase contains block-based reasoning datasets and the dynamic block-size generation method such as **b1**.
+**Block-R1** is a benchmark for **multi-domain reinforcement learning with block-based diffusion large language models**, designed to enhance block-based reasoning generation in dLLMs. This codebase contains block-based reasoning datasets and the dynamic block-size generation method such as b1.
 
 Block-R1 standardises RL training recipes, Block-R1 dataset construction, and evaluation across **reasoning, code, puzzles, and knowledge** domains, where different domains may prefer different block sizes for semi-autoregressive decoding in dLLMs.
 
@@ -444,7 +444,7 @@ Please refer to the paper for full experimental results.
 
 ## References and Related Resources
 
-This benchmark builds on open-sourced RL algorithms, models, and datasets. The relevant public methods are:
+This benchmark builds on open-sourced RL algorithms, models, and datasets. The included relevant public methods are:
 
 ### Methods and Algorithms
 
