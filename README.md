@@ -2,10 +2,10 @@
 
 <img src="Logo.png" alt="Block-R1" width="900"/>
 
-[![Paper-b1](https://img.shields.io/badge/Paper-b1-red)](http://arxiv.org/abs/2605.02263)
-[![Paper-Block--R1](https://img.shields.io/badge/Paper-Block--R1-red)](#)
+<!-- [![Paper-b1](https://img.shields.io/badge/Paper-b1-red)](http://arxiv.org/abs/2605.02263) -->
+<!-- [![Paper-Block--R1](https://img.shields.io/badge/Paper-Block--R1-red)](#) -->
 [![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow)](https://huggingface.co/datasets/dLLM-R1/Block-R1)
-[![Code](https://img.shields.io/badge/Code-GitHub-blue)](https://github.com/YanJiangJerry/Block-R1)
+[![Code](https://img.shields.io/badge/Code-GitHub-blue)](https://anonymous.4open.science/r/Block-R1-2026/README.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 </div>
@@ -13,7 +13,7 @@
 
 ## Overview
 
-**Block-R1** is a benchmark for **multi-domain reinforcement learning with block-based diffusion large language models**, designed to enhance block-based reasoning generation in dLLMs. This codebase contains block-based reasoning datasets and the dynamic block-size generation method, **b1**.
+**Block-R1** is a benchmark for **multi-domain reinforcement learning with block-based diffusion large language models**, designed to enhance block-based reasoning generation in dLLMs. This codebase contains block-based reasoning datasets and the dynamic block-size generation method such as **b1**.
 
 Block-R1 standardises RL training recipes, Block-R1 dataset construction, and evaluation across **reasoning, code, puzzles, and knowledge** domains, where different domains may prefer different block sizes for semi-autoregressive decoding in dLLMs.
 
@@ -42,7 +42,7 @@ Main components:
 - [Pipeline](#pipeline)
 - [SFT](#sft)
 - [Performance](#performance)
-- [Acknowledgements](#acknowledgements)
+- [References and Related Resources](#references-and-related-resources)
 - [Citation](#citation)
 
 
@@ -113,7 +113,7 @@ The models and datasets can be downloaded via Hugging Face using the links in th
 Clone the repository:
 
 ```bash
-git clone https://github.com/YanJiangJerry/Block-R1.git
+git clone https://anonymous.4open.science/r/Block-R1-2026/
 cd Block-R1
 ```
 
@@ -253,7 +253,7 @@ Block-R1 supports 7 latest RL-for-dLLM methods under `reproduce/` (one folder pe
 
 ### Dynamic block size: b1
 
-Beyond these seven RL method families, Block-R1 supports **dynamic-size reasoning blocks** with **b1**.
+Beyond these seven RL method families, Block-R1 supports **dynamic-size reasoning blocks** from **b1**.
 
 Scripts prefixed with `b1_`, `block_b1_`, or `r1_b1_` under each method folder implement the dynamic block-size recipe. b1 is orthogonal to the seven algorithm folders and can be composed with them as a block scheduling or reward structure.
 
@@ -442,9 +442,9 @@ The benchmark is supported to report:
 Please refer to the paper for full experimental results.
 
 
-## Acknowledgements
+## References and Related Resources
 
-This benchmark builds on public RL algorithms, models, and datasets. The relevant methods are:
+This benchmark builds on open-sourced RL algorithms, models, and datasets. The relevant public methods are:
 
 ### Methods and Algorithms
 
@@ -467,9 +467,9 @@ This benchmark builds on public RL algorithms, models, and datasets. The relevan
 
 ## Citation
 
-If you use this benchmark, please cite b1 and Block-R1. (Link Coming Soon) 
+If you use this benchmark, please cite Block-R1. Citation information will be released after the review process.
 
-We are grateful to all of the authors for their excellent work, which made this benchmark and codebase complete.
+The listed public resources are used as references for reproducible benchmarking.
 
 ```bibtex
 @inproceedings{zhao2025d1,
