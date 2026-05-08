@@ -13,7 +13,7 @@
 
 ## Overview
 
-**Block-R1** is a benchmark for **multi-domain reinforcement learning with block-based diffusion large language models**, designed to enhance block-based reasoning generation in dLLMs. This codebase contains block-based reasoning datasets and the dynamic block-size generation method such as b1.
+**Block-R1** is a benchmark for **multi-domain reinforcement learning with block-based diffusion large language models**, designed to enhance block-based reasoning generation in dLLMs. This codebase contains block-based reasoning datasets and the dynamic block-size generation method.
 
 Block-R1 standardises RL training recipes, Block-R1 dataset construction, and evaluation across **reasoning, code, puzzles, and knowledge** domains, where different domains may prefer different block sizes for semi-autoregressive decoding in dLLMs.
 
@@ -359,9 +359,9 @@ bash run_block_r1.sh reproduce/wd1/block_r1_wd1.sh
 
 ### 3. Full RL training sweeps
 
-`run_benchmark.sh` sequentially runs a large set of single-domain training scripts under `reproduce/`.
+`run_benchmark.sh` sequentially runs a large set of RL for dLLM method training scripts under `reproduce/`.
 
-It covers d1, GRPO, WD1, GDPO, MDPO, StableDRL, ESPO, and b1 variants.
+It covers d1, GRPO, WD1, GDPO, MDPO, StableDRL, ESPO, and b1.
 
 ```bash
 bash run_benchmark.sh
