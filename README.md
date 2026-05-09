@@ -2,10 +2,10 @@
 
 <img src="Logo.png" alt="Block-R1" width="900"/>
 
-
-<!-- [![Paper-Block--R1](https://img.shields.io/badge/Paper-Block--R1-red)](#) -->
+[![Paper-b1](https://img.shields.io/badge/Paper-b1-red)](https://arxiv.org/abs/2605.02263)
+[![Paper-Block--R1](https://img.shields.io/badge/Paper-Block--R1-red)](#)
 [![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow)](https://huggingface.co/datasets/dLLM-R1/Block-R1)
-[![Code](https://img.shields.io/badge/Code-GitHub-blue)](https://anonymous.4open.science/r/Block-R1-2026/README.md)
+[![Code](https://img.shields.io/badge/Code-GitHub-blue)](https://github.com/YanJiangJerry/Block-R1)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 </div>
@@ -13,7 +13,7 @@
 
 ## Overview
 
-**Block-R1** is a benchmark for **multi-domain reinforcement learning with block-based diffusion large language models**, designed to enhance block-based reasoning generation in dLLMs. This codebase contains block-based reasoning datasets and the dynamic block-size generation method.
+**Block-R1** is a benchmark for **multi-domain reinforcement learning with block-based diffusion large language models**, designed to enhance block-based reasoning generation in dLLMs. This codebase contains block-based reasoning datasets and the dynamic block-size generation method **b1**.
 
 Block-R1 standardises RL training recipes, Block-R1 dataset construction, and evaluation across **reasoning, code, puzzles, and knowledge** domains, where different domains may prefer different block sizes for semi-autoregressive decoding in dLLMs.
 
@@ -413,6 +413,35 @@ CKPT_STEPS
 MODEL_PATH
 ```
 
+### 6. b1: dynamic-size block training
+
+Scripts prefixed with `b1_*` apply the **b1** dynamic-size block mechanism on top of an existing RL recipe. They live under `reproduce/<base_method>/b1_<base_method>_<dataset>.sh`, where:
+
+- `<base_method>` selects the underlying RL algorithm (e.g. `wd1`, `stable_drl`); the corresponding `--trainer_type` (e.g. `b1_wll` for wd1, `b1_stable_drl` for stable_drl) is set inside each script.
+- `<dataset>` is one of `countdown`, `gsm8k`, `math`, `sudoku`, `kodcode`, `mbpp`, `humaneval`, `knights_and_knaves`.
+
+Run a single recipe directly:
+
+```bash
+bash reproduce/wd1/b1_wd1_countdown.sh
+bash reproduce/wd1/b1_wd1_math.sh
+```
+
+Or dispatch a subset through `run_benchmark.sh`:
+
+```bash
+bash run_benchmark.sh reproduce/wd1/b1_wd1_countdown.sh reproduce/wd1/b1_wd1_gsm8k.sh
+```
+
+Inside a `b1_*` script, the variables you typically edit are:
+
+```bash
+MODEL_NAME       # backbone (e.g. GSAI-ML/LLaDA-8B-Instruct)
+DATASET          # one of countdown, gsm8k, math, sudoku, kodcode, mbpp, humaneval, knights_and_knaves
+NUM_ITER         # policy-gradient inner-update iterations
+RUN_NAME         # auto-built as b1_<base_method>_<dataset>
+```
+
 
 ## SFT
 
@@ -467,9 +496,18 @@ This benchmark builds on open-sourced RL algorithms, models, and datasets. The i
 
 ## Citation
 
-If you use this benchmark, please cite Block-R1. Citation information will be released after the review process.
+If you use this benchmark, please cite b1 and Block-R1.
 
-The listed public resources are used as references for reproducible benchmarking.
+```bibtex
+@article{jiang2026breakblock,
+  title={{Break the Block: Dynamic-size Reasoning Blocks for Diffusion Large Language Models via Monotonic Entropy Descent with Reinforcement Learning}},
+  author={Jiang, Yan and Qiu, Ruihong and Huang, Zi},
+  journal={arXiv preprint arXiv:2605.02263},
+  year={2026}
+}
+```
+
+**We sincerely thank all the authors of the works listed below for their awesome work**, which makes this benchmark possible.
 
 ```bibtex
 @inproceedings{zhao2025d1,
