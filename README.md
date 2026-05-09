@@ -43,7 +43,6 @@ Main components:
 - [SFT](#sft)
 - [Performance](#performance)
 - [References and Related Resources](#references-and-related-resources)
-- [Citation](#citation)
 
 
 ## Key Features
@@ -473,7 +472,7 @@ Please refer to the paper for full experimental results.
 
 ## References and Related Resources
 
-This benchmark builds on open-sourced RL algorithms, models, and datasets. The included relevant public methods are:
+This benchmark builds on open-sourced RL algorithms, models, and datasets. **We sincerely thank all the authors of the works listed below for their awesome work**, which makes this benchmark possible. The included methods are:
 
 ### Methods and Algorithms
 
@@ -505,65 +504,4 @@ If you use this benchmark, please cite b1 and Block-R1.
   journal={arXiv preprint arXiv:2605.02263},
   year={2026}
 }
-```
-
-**We sincerely thank all the authors of the works listed below for their awesome work**, which makes this benchmark possible.
-
-```bibtex
-@inproceedings{zhao2025d1,
-  title={{d1: Scaling Reasoning in Diffusion Large Language Models via Reinforcement Learning}},
-  author={Zhao, Siyan and Gupta, Devaansh and Zheng, Qinqing and Grover, Aditya},
-  booktitle={NeurIPS},
-  year={2025}
-}
-
-@inproceedings{tang2025wd1,
-  title={WD1: Weighted Policy Optimization for Reasoning in Diffusion Language Models},
-  author={Xiaohang Tang and Rares Dolga and Sangwoong Yoon and Ilija Bogunovic},
-  booktitle={ICLR},
-  year={2026}
-}
-
-@inproceedings{rojas2025gdpo,
-  title={Improving Reasoning for Diffusion Language Models via Group Diffusion Policy Optimization},
-  author={Kevin Rojas and Jiahe Lin and Kashif Rasul and Anderson Schneider and Yuriy Nevmyvaka and Molei Tao and Wei Deng},
-  booktitle={ICLR},
-  year={2026}
-}
-
-@article{he2025mdpo,
-  title={MDPO: Overcoming the Training-Inference Divide of Masked Diffusion Language Models},
-  author={Haoyu He and Katrin Renz and Yong Cao and Andreas Geiger},
-  journal={arXiv preprint arXiv:2508.13148},
-  year={2025}
-}
-
-@article{zhong2026stabilizing,
-  title={{Stabilising Reinforcement Learning for Diffusion Language Models}},
-  author={Zhong, Jianyuan and Wang, Kaibo and Ding, Ding and Feng, Zijin and Bai, Haoli and Xiang, Yang and Sun, Jiacheng and Xu, Qiang},
-  journal={arXiv preprint arXiv:2603.06743},
-  year={2026}
-}
-
-@inproceedings{wang2026spg,
-  title={{SPG: Sandwiched Policy Gradient for Masked Diffusion Language Models}},
-  author={Wang, Chenyu and Rashidinejad, Paria and Su, DiJia and Jiang, Song and Wang, Sid and Zhao, Siyan and Zhou, Cai and Shen, Shannon Zejiang and Chen, Feiyu and Jaakkola, Tommi and Tian, Yuandong and Liu, Bo},
-  booktitle={ICLR},
-  year={2026}
-}
-
-@inproceedings{ou2025espo,
-  title={{Principled RL for Diffusion LLMs Emerges from a Sequence-Level Perspective}},
-  author={Ou, Jingyang and Han, Jiaqi and Xu, Minkai and Xu, Shaoxuan and Xie, Jianwen and Ermon, Stefano and Wu, Yi and Li, Chongxuan},
-  booktitle={ICLR},
-  year={2026}
-}
-
-@inproceedings{cheng2025revisiting,
-  title={{Revisiting Reinforcement Learning for LLM Reasoning from a Cross-Domain Perspective}},
-  author={Cheng, Zhoujun and Hao, Shibo and Liu, Tianyang and Zhou, Fan and Xie, Yutao and Yao, Feng and Bian, Yuexin and Zhuang, Yonghao and Dey, Nilabjo and Zha, Yuheng and Gu, Yi and Zhou, Kun and Wang, Yuqi and Li, Yuan and Fan, Richard and She, Jianshu and Gao, Chengqian and Saparov, Abulhair and Li, Haonan and Killian, Taylor W. and Yurochkin, Mikhail and Liu, Zhengzhong and Xing, Eric P. and Hu, Zhiting},
-  booktitle={NeurIPS},
-  year={2025}
-}
-
 ```
