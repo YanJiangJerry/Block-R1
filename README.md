@@ -4,7 +4,8 @@
 
 [![Paper-b1](https://img.shields.io/badge/Paper-b1-red)](https://arxiv.org/abs/2605.02263)
 [![Paper-Block--R1](https://img.shields.io/badge/Paper-Block--R1-red)](#)
-[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow)](https://huggingface.co/datasets/dLLM-R1/Block-R1)
+[![Dataset](https://img.shields.io/static/v1?label=Dataset&message=Hugging%E2%80%8BFace&color=yellow)](https://huggingface.co/datasets/dLLM-R1/Block-R1)
+[![Models](https://img.shields.io/static/v1?label=Models&message=Hugging%E2%80%8BFace&color=yellow)](https://huggingface.co/dLLM-R1/Block-R1-ckpts)
 [![Code](https://img.shields.io/badge/Code-GitHub-blue)](https://github.com/YanJiangJerry/Block-R1)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
@@ -21,7 +22,7 @@ Main components:
 
 - **Multi-domain RL**: Train and compare the latest RL for dLLM algorithms on multiple domains and metrics under one benchmark protocol.
 - **Benchmark coverage**: Diverse domains covering code, maths, puzzles, general knowledge, and advanced reasoning.
-- **Block-R1 dataset construction**: Build block-based training data by comparing model A and model B across different block sizes.
+- **Block-R1 dataset construction**: Build block-based training data by comparing a student and a teacher dLLM across different block sizes.
 - **Dynamic block size generation**: Support **b1**, a dynamic-size reasoning block method for dLLMs.
 - **RL methods for dLLMs**: Reproduce multiple RL algorithm families under a unified codebase.
 - **Backbone dLLMs**: Support LLaDA, LLaDA 1.5, LLaDA2 mini, Dream, SDAR, and TraDo.
