@@ -3,7 +3,7 @@
 <img src="Logo.png" alt="Block-R1" width="900"/>
 
 [![Paper-b1](https://img.shields.io/badge/Paper-b1-red)](https://arxiv.org/abs/2605.02263)
-[![Paper-Block--R1](https://img.shields.io/badge/Paper-Block--R1-red)](#)
+[![Paper-Block--R1](https://img.shields.io/badge/Paper-Block--R1-red)](https://arxiv.org/abs/2605.11726)
 [![Dataset](https://img.shields.io/static/v1?label=Dataset&message=Hugging%E2%80%8BFace&color=yellow)](https://huggingface.co/datasets/dLLM-R1/Block-R1)
 [![Models](https://img.shields.io/static/v1?label=Models&message=Hugging%E2%80%8BFace&color=yellow)](https://huggingface.co/dLLM-R1/Block-R1-ckpts)
 [![Code](https://img.shields.io/badge/Code-GitHub-blue)](https://github.com/YanJiangJerry/Block-R1)
@@ -251,7 +251,7 @@ Block-R1 supports 7 latest RL-for-dLLM methods under `reproduce/` (one folder pe
 | `reproduce/stable_drl/` | *Stabilizing Reinforcement Learning for Diffusion Language Models* |
 | `reproduce/espo/` | *Principled RL for Diffusion LLMs Emerges from a Sequence-Level Perspective* |
 
-### Dynamic block size: b1
+### Dynamic block size generation: b1
 
 Beyond these seven RL method families, Block-R1 supports **dynamic-size reasoning blocks** from **b1**.
 
@@ -473,7 +473,7 @@ Please refer to the paper for full experimental results.
 
 ## References and Related Resources
 
-This benchmark builds on open-sourced RL algorithms, models, and datasets. **We sincerely thank all the authors of the works listed below for their awesome work**, which makes this benchmark possible. The included methods are:
+This benchmark builds on open-sourced RL algorithms, models, and datasets. **We sincerely thank all the authors listed below for their awesome work**, which makes this benchmark possible. The included methods are:
 
 ### Methods and Algorithms
 
@@ -505,4 +505,12 @@ If you use this benchmark, please cite b1 and Block-R1.
   journal={arXiv preprint arXiv:2605.02263},
   year={2026}
 }
+
+@article{jiang2026blockr1,
+  title={{Block-R1: Rethinking the Role of Block Size in Multi-domain Reinforcement Learning for Diffusion Large Language Models}},
+  author={Jiang, Yan and Qiu, Ruihong and Huang, Zi},
+  journal={arXiv preprint arXiv:2605.11726},
+  year={2026}
+}
+
 ```
