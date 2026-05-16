@@ -3,6 +3,7 @@
 <img src="Logo.png" alt="Block-R1" width="900"/>
 
 [![Paper-b1](https://img.shields.io/badge/Paper-b1-red)](https://arxiv.org/abs/2605.02263)
+[![Paper-Block--R1](https://img.shields.io/badge/Paper-Block--R1-red)](https://arxiv.org/abs/2605.11726)
 [![Dataset](https://img.shields.io/static/v1?label=Dataset&message=Hugging%E2%80%8BFace&color=yellow)](https://huggingface.co/datasets/YanJiangJerry/Block-R1)
 [![Models](https://img.shields.io/static/v1?label=Models&message=Hugging%E2%80%8BFace&color=yellow)](https://huggingface.co/YanJiangJerry/Block-R1-ckpts)
 [![Code](https://img.shields.io/badge/Code-GitHub-blue)](https://github.com/YanJiangJerry/Block-R1)
@@ -502,6 +503,13 @@ If you use this benchmark, please cite b1 and Block-R1.
   title={{Break the Block: Dynamic-size Reasoning Blocks for Diffusion Large Language Models via Monotonic Entropy Descent with Reinforcement Learning}},
   author={Jiang, Yan and Qiu, Ruihong and Huang, Zi},
   journal={arXiv preprint arXiv:2605.02263},
+  year={2026}
+}
+
+@article{jiang2026blockr1,
+  title={{Block-R1: Rethinking the Role of Block Size in Multi-domain Reinforcement Learning for Diffusion Large Language Models}},
+  author={Jiang, Yan and Qiu, Ruihong and Huang, Zi},
+  journal={arXiv preprint arXiv:2605.11726},
   year={2026}
 }
 
